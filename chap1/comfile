@@ -1,0 +1,4 @@
+break main
+display/i $pc
+display/x $esi
+display/x $edx
