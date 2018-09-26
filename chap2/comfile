@@ -1,0 +1,7 @@
+b main
+disp/i $pc
+disp/t $ps
+disp/t $eax
+disp/t $ebx
+#disp/x $ecx
+#disp/x $esi
