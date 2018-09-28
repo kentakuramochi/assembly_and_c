@@ -1,7 +1,9 @@
 b main
+b loopend
 disp/i $pc
-disp/t $ps
-disp/t $eax
-disp/t $ebx
-#disp/x $ecx
+#disp/t $ps
+disp/x $eax
+#disp/t $ebx
+disp/x $ecx
+disp/x $edx
 #disp/x $esi
