@@ -1,15 +1,17 @@
 #include <stdio.h>
 
-void intadd(int a, int b, int *c)
-{
-    *c = a + b;
-}
+extern void intadd(int a, int b, int *c);
 
-void main()
+int main()
 {
     int a, b, c;
+
     printf("Enter a,b : ");
     scanf("%d %d", &a, &b);
+
     intadd(a, b, &c);
+    printf("Hello\n");
     printf("Answer = %d\n", c);
+
+    return 0;
 }
