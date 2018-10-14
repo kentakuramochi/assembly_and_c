@@ -5,13 +5,13 @@
 .type   intadd, @function
 # void intadd(int a, int b, int *c)
 intadd:
-        pushl   %ebp
+        pushl   %ebp            # save %ebp: it mustn't be changed
+                                # between function call/return
         movl    %esp, %ebp
-        movl    16(%ebp), %ebx  # get address of "c"
-        movl    8(%ebp), %edx   # get value of "a"
-        addl    12(%ebp), %edx  # "a" + "b"
-        movl    %edx, (%ebx)    # set result to "c"
-#
-        movl    %ebp, %esp
+        movl    16(%ebp), %edx  # set address of c to %edx
+        movl    8(%ebp), %eax   # %eax = a
+        addl    12(%ebp), %eax  # %eax += b
+        movl    %eax, (%edx)    # *c = %eax
+        movl    %ebp, %esp      # retrieve %ebp
         popl    %ebp
         ret
