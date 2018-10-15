@@ -8,24 +8,24 @@ lower2upper:
         movl    %esp, %ebp
 #
         movl    12(%ebp), %edx  # address of string
-        xorl    %ecx, %ecx      # zero clear
+        xorl    %ecx, %ecx      # counter: zero clear
 looptop:
         movb    (%edx), %al
         cmpb    $0, %al         # is '\0' ?
         je      exit
-        cmpb    $'a', %al
+        cmpb    $'a', %al       # < 'a' ?
         jb      next
-        cmpb    $'z', %al
+        cmpb    $'z', %al       # > 'z' ?
         ja      next
-        andb    $0xdf, (%edx)   # = subb $0x20, (%edx)
+        andb    $0xdf, (%edx)   # = subb $0x20, (%edx) : lower to upper
 next:
-        incl    %edx
-        incl    %ecx
+        incl    %edx            # next character
+        incl    %ecx            # increment counter
         jmp     looptop
 #
 exit:
         movl    8(%ebp), %edx   # address of counter
-        movl    %ecx, (%edx)
+        movl    %ecx, (%edx)    # save count
         movl    %ebp, %esp
         popl    %ebp
         ret
