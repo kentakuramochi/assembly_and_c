@@ -2,11 +2,13 @@
 
 #define NDIM 5
 
-extern void setelement(int ndim, int[][] ary, int row, int col);
+// row length is fixed
+extern void setelement(int ndim, int arr[][NDIM], int row, int col);
 
 int main()
 {
     int a[NDIM][NDIM], i, j;
+
     setelement(NDIM, a, 2, 3);
 
     for (i = 0; i < 2; i++) {
