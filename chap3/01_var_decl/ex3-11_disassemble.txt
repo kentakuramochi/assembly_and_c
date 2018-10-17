@@ -1,0 +1,66 @@
+
+ex3-11.o:     ファイル形式 elf32-i386
+
+
+セクション .text の逆アセンブル:
+
+00000000 <main>:
+	.globl	main
+	.type	main, @function
+main:
+.LFB0:
+	.cfi_startproc
+	pushl	%ebp
+   0:	55                   	push   %ebp
+	.cfi_def_cfa_offset 8
+	.cfi_offset 5, -8
+	movl	%esp, %ebp
+   1:	89 e5                	mov    %esp,%ebp
+	.cfi_def_cfa_register 5
+	call	__x86.get_pc_thunk.ax
+   3:	e8 fc ff ff ff       	call   4 <main+0x4>
+	addl	$_GLOBAL_OFFSET_TABLE_, %eax
+   8:	05 01 00 00 00       	add    $0x1,%eax
+	movl	x@GOT(%eax), %edx
+   d:	8b 90 00 00 00 00    	mov    0x0(%eax),%edx
+	movl	$2, (%edx)
+  13:	c7 02 02 00 00 00    	movl   $0x2,(%edx)
+	movl	y@GOT(%eax), %edx
+  19:	8b 90 00 00 00 00    	mov    0x0(%eax),%edx
+	movl	$3, (%edx)
+  1f:	c7 02 03 00 00 00    	movl   $0x3,(%edx)
+	movl	x@GOT(%eax), %edx
+  25:	8b 90 00 00 00 00    	mov    0x0(%eax),%edx
+	movl	(%edx), %ecx
+  2b:	8b 0a                	mov    (%edx),%ecx
+	movl	y@GOT(%eax), %edx
+  2d:	8b 90 00 00 00 00    	mov    0x0(%eax),%edx
+	movl	(%edx), %edx
+  33:	8b 12                	mov    (%edx),%edx
+	addl	%ecx, %edx
+  35:	01 ca                	add    %ecx,%edx
+	movl	z@GOT(%eax), %eax
+  37:	8b 80 00 00 00 00    	mov    0x0(%eax),%eax
+	movl	%edx, (%eax)
+  3d:	89 10                	mov    %edx,(%eax)
+	movl	$0, %eax
+  3f:	b8 00 00 00 00       	mov    $0x0,%eax
+	popl	%ebp
+  44:	5d                   	pop    %ebp
+	.cfi_restore 5
+	.cfi_def_cfa 4, 4
+	ret
+  45:	c3                   	ret    
+
+セクション .text.__x86.get_pc_thunk.ax の逆アセンブル:
+
+00000000 <__x86.get_pc_thunk.ax>:
+	.hidden	__x86.get_pc_thunk.ax
+	.type	__x86.get_pc_thunk.ax, @function
+__x86.get_pc_thunk.ax:
+.LFB1:
+	.cfi_startproc
+	movl	(%esp), %eax
+   0:	8b 04 24             	mov    (%esp),%eax
+	ret
+   3:	c3                   	ret    

@@ -1,0 +1,38 @@
+--- ex3-11.s	2018-10-17 02:06:28.682680955 +0900
++++ ex3-12.s	2018-10-17 23:30:45.034531550 +0900
+@@ -1,8 +1,8 @@
+-	.file	"ex3-11.c"
++	.file	"ex3-12.c"
+ 	.text
+-	.comm	x,4,4
+-	.comm	y,4,4
+-	.comm	z,4,4
++	.comm	x,2,2
++	.comm	y,2,2
++	.comm	z,2,2
+ 	.globl	main
+ 	.type	main, @function
+ main:
+@@ -16,16 +16,17 @@
+ 	call	__x86.get_pc_thunk.ax
+ 	addl	$_GLOBAL_OFFSET_TABLE_, %eax
+ 	movl	x@GOT(%eax), %edx
+-	movl	$2, (%edx)
++	movw	$2, (%edx)
+ 	movl	y@GOT(%eax), %edx
+-	movl	$3, (%edx)
++	movw	$3, (%edx)
+ 	movl	x@GOT(%eax), %edx
+-	movl	(%edx), %ecx
++	movzwl	(%edx), %edx
++	movl	%edx, %ecx
+ 	movl	y@GOT(%eax), %edx
+-	movl	(%edx), %edx
++	movzwl	(%edx), %edx
+ 	addl	%ecx, %edx
+ 	movl	z@GOT(%eax), %eax
+-	movl	%edx, (%eax)
++	movw	%dx, (%eax)
+ 	movl	$0, %eax
+ 	popl	%ebp
+ 	.cfi_restore 5
