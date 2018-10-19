@@ -32,14 +32,14 @@ main:
 	call	printf@PLT
 	addl	$16, %esp
 	subl	$8, %esp
-	leal	y.1412@GOTOFF(%ebx), %eax
+	leal	y.1867@GOTOFF(%ebx), %eax
 	pushl	%eax
 	leal	.LC1@GOTOFF(%ebx), %eax
 	pushl	%eax
-	call	scanf@PLT
+	call	__isoc99_scanf@PLT
 	addl	$16, %esp
-	movl	x.1411@GOTOFF(%ebx), %edx
-	movl	y.1412@GOTOFF(%ebx), %eax
+	movl	x.1866@GOTOFF(%ebx), %edx
+	movl	y.1867@GOTOFF(%ebx), %eax
 	addl	%edx, %eax
 	subl	$8, %esp
 	pushl	%eax
@@ -62,13 +62,13 @@ main:
 	.cfi_endproc
 .LFE0:
 	.size	main, .-main
-	.local	y.1412
-	.comm	y.1412,4,4
+	.local	y.1867
+	.comm	y.1867,4,4
 	.data
 	.align 4
-	.type	x.1411, @object
-	.size	x.1411, 4
-x.1411:
+	.type	x.1866, @object
+	.size	x.1866, 4
+x.1866:
 	.long	1
 	.section	.text.__x86.get_pc_thunk.bx,"axG",@progbits,__x86.get_pc_thunk.bx,comdat
 	.globl	__x86.get_pc_thunk.bx
@@ -81,5 +81,5 @@ __x86.get_pc_thunk.bx:
 	ret
 	.cfi_endproc
 .LFE1:
-	.ident	"GCC: (Ubuntu 7.3.0-16ubuntu3) 7.3.0"
+	.ident	"GCC: (Ubuntu 7.3.0-27ubuntu1~18.04) 7.3.0"
 	.section	.note.GNU-stack,"",@progbits

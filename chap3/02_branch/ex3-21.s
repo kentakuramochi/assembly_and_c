@@ -1,4 +1,4 @@
-	.file	"ex3-12.c"
+	.file	"ex3-21.c"
 	.text
 	.section	.rodata
 .LC0:

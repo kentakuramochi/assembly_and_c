@@ -51,5 +51,5 @@ __x86.get_pc_thunk.ax:
 	ret
 	.cfi_endproc
 .LFE1:
-	.ident	"GCC: (Ubuntu 7.3.0-16ubuntu3) 7.3.0"
+	.ident	"GCC: (Ubuntu 7.3.0-27ubuntu1~18.04) 7.3.0"
 	.section	.note.GNU-stack,"",@progbits
